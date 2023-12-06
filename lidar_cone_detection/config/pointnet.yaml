@@ -1,0 +1,4 @@
+# PointNet
+points_for_model_input: 25
+class_number: 1
+class_label: ["cone"]

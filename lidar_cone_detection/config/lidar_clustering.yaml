@@ -1,0 +1,16 @@
+%YAML 1.0
+---
+
+pointcloud_topic: /ouster/points
+
+euclidean_clustering:
+  print_fps: true
+  z_axis_min: -1
+  z_axis_max: -0.3
+  x_axis_min: 3
+  x_axis_max: 15
+  y_axis_min: -3
+  y_axis_max: 3
+  tolerance: 0.1
+  cluster_size_min: 20
+  cluster_size_max:  100
