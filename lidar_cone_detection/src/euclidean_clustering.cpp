@@ -27,7 +27,7 @@ Lidar_clustering::Lidar_clustering(ros::NodeHandle* nh){
 
     point_cloud_sub = nh->subscribe<sensor_msgs::PointCloud2>("/demo/nonground", 1, &Lidar_clustering::pointCloudCallback, this);
 
-    cluster_array_pub_ = nh->advertise<dv_interfaces::ClusterArray>("clusters", 100);
+    cluster_array_pub_ = nh->advertise<lidar_cone_detection::Clusters>("clusters", 100);
     cloud_filtered_pub_ = nh->advertise<sensor_msgs::PointCloud2>("cloud_filtered", 100);
     pose_array_pub_ = nh->advertise<geometry_msgs::PoseArray>("poses", 100);
     marker_array_pub_ = nh->advertise<visualization_msgs::MarkerArray>("markers", 100);
@@ -119,7 +119,7 @@ void Lidar_clustering::pointCloudCallback(const sensor_msgs::PointCloud2::ConstP
     cloud_filtered_pub_.publish(ros_pc2_out);
   // }
   
-  dv_interfaces::ClusterArray cluster_array;
+  lidar_cone_detection::Clusters cluster_array;
   geometry_msgs::PoseArray pose_array;
   visualization_msgs::MarkerArray marker_array;
   

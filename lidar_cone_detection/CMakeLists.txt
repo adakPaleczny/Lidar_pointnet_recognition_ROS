@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   pcl_conversions
   pcl_ros
-  # package
+  message_generation
 )
 
 find_package(PCL REQUIRED)
@@ -55,7 +55,8 @@ find_package(PCL REQUIRED)
 
 ## Generate messages in the 'msg' folder
 add_message_files(
-  ClusterArray.msg
+  FILES
+  Clusters.msg
 )
 
 ## Generate services in the 'srv' folder
@@ -73,10 +74,11 @@ add_message_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+  sensor_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##

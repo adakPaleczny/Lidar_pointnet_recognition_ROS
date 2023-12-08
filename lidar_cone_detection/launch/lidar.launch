@@ -2,11 +2,12 @@
 
     <include file="$(find patchworkpp)/launch/demo.launch" />
 
-    <node pkg="dv_cone_detector" type="euclidean_clustering_node" name="euclidean_clustering" output="screen" >
-        <rosparam command="load" file="$(find dv_cone_detector)/config/lidar_clustering.yaml" />
+    <node pkg="lidar_cone_detection" type="euclidean_clustering_node" name="euclidean_clustering" output="screen" >
+        <rosparam command="load" file="$(find lidar_cone_detection)/config/lidar_clustering.yaml" />
     </node>
     
-    <node pkg="dv_cone_detector" type="pointnet_recognition.py" name="PointNetRecognition"  output="screen" >
-        <rosparam command="load" file="$(find dv_cone_detector)/config/pointnet.yaml" />
+    <node pkg="lidar_cone_detection" type="pointnet_recognition.py" name="PointNetRecognition"  output="screen" >
+        <rosparam command="load" file="$(find lidar_cone_detection)/config/pointnet.yaml" />
+    </node>
 
 </launch>

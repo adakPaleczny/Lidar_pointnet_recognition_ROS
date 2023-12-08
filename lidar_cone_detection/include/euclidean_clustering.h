@@ -6,7 +6,7 @@
 #include <sensor_msgs/PointCloud2.h>
 #include <geometry_msgs/PoseArray.h>
 #include <visualization_msgs/MarkerArray.h>
-#include "dv_interfaces/ClusterArray.h"
+#include "lidar_cone_detection/Clusters.h"
 
 // PCL
 #include <pcl_conversions/pcl_conversions.h>

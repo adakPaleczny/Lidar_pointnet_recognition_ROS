@@ -99,14 +99,14 @@ class PointNet:
     def __init__(self) -> None:
         # self.session = tf.Session()
         self.print = True
-        try:
-            self.pointnet = PointNet_Model(25,1)
-            rospy.loginfo("MODEL LOADED")
-        except:
-            rospy.loginfo("SOME EXEPTION WAS CAUGHT WITH LOADING POINTNET MODEL")
+        # try:
+        self.pointnet = PointNet_Model(25,1)
+            # rospy.loginfo("MODEL LOADED")
+        # except:
+        #     rospy.loginfo("SOME EXEPTION WAS CAUGHT WITH LOADING POINTNET MODEL")
 
-        self.sub = rospy.Subscriber("euclidean_clustering/clusters", ClusterArray, self.callback)
-        self.pub = rospy.Publisher("pointnet_cones", PointCloud2 ,queue_size=10)
+        # self.sub = rospy.Subscriber("euclidean_clustering/clusters", ClusterArray, self.callback)
+        # self.pub = rospy.Publisher("pointnet_cones", PointCloud2 ,queue_size=10)
         
     def combine_clusters(self, msg):
         # Initialize an empty list to hold all points
