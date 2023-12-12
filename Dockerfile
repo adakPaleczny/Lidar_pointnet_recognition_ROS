@@ -5,8 +5,9 @@ SHELL ["/bin/bash", "-c"]
 
 # Setup system
 ENV TZ=Europe/Warsaw
-RUN sudo apt update -y && sudo apt upgrade -y && apt-get install -y sudo  &&\
-     sudo apt install ros-noetic-roslaunch 
+RUN sudo apt update -y && sudo apt upgrade -y && apt-get install -y sudo pip  &&\
+     sudo apt install ros-noetic-roslaunch &&\ 
+     pip install tensorflow
 
 RUN useradd -ms /bin/bash DV && usermod -aG sudo DV && echo 'DV     ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER DV 

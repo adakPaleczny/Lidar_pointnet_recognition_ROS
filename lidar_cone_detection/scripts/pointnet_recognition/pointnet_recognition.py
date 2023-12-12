@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.models import Model
 from tensorflow.keras.models import load_model
-from dv_interfaces.msg import ClusterArray
+from lidar_cone_detection.msg import Clusters
 
 # ==============================================================================
 # -- ROS package ---------------------------------------------------------------
@@ -105,7 +105,7 @@ class PointNet:
         except:
             rospy.loginfo("SOME EXEPTION WAS CAUGHT WITH LOADING POINTNET MODEL")
 
-        self.sub = rospy.Subscriber("euclidean_clustering/clusters", ClusterArray, self.callback)
+        self.sub = rospy.Subscriber("euclidean_clustering/clusters", Clusters, self.callback)
         self.pub = rospy.Publisher("pointnet_cones", PointCloud2 ,queue_size=10)
         
     def combine_clusters(self, msg):
@@ -128,7 +128,7 @@ class PointNet:
     
     def callback(self, ros_point_cloud):
         time = rospy.get_time()
-        msg = ClusterArray()
+        msg = Clusters()
         
         for cluster in ros_point_cloud.clusters:
             xyz = np.array([[0,0,0]])

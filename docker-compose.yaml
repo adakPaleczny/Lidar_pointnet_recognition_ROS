@@ -9,7 +9,7 @@ services:
 
     privileged: true
     stdin_open: true  
-    command: 
-      - /bin/bash
-      - -c
-      - roslaunch lidar_cone_detection lidar.launch
+    # command: 
+    #   - /bin/bash
+    #   - -c
+    #   - roslaunch lidar_cone_detection lidar.launch
