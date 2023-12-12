@@ -93,7 +93,7 @@ class PointNet_Model():
 
         self.model = keras.Model(inputs=inputs, outputs=outputs, name='pointnet')
 
-        self.model.load_weights('/home/adam_dv/ros_ws/src/Lidar_pointnet_recognition_ROS/lidar_cone_detection/scripts/pointnet_recognition/pn_weights.h5')
+        self.model.load_weights('/home/DV/ros_ws/src/lidar_cone_detection/scripts/pointnet_recognition/pn_weights.h5')
 
 class PointNet:
     def __init__(self) -> None:

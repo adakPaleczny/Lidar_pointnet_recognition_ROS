@@ -6,10 +6,18 @@ services:
       dockerfile: Dockerfile
     image: ros_docker:latest
     # runtime: nvidia
-
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+    environment:
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - DISPLAY=$DISPLAY
     privileged: true
     stdin_open: true  
-    # command: 
-    #   - /bin/bash
-    #   - -c
-    #   - roslaunch lidar_cone_detection lidar.launch
+    command: 
+      - /bin/bash
+      - -c
+      - source devel/setup.bash && roslaunch lidar_cone_detection lidar.launch
