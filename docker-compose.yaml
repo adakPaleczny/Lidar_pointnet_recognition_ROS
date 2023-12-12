@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  ros_docker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ros_docker:latest
+    # runtime: nvidia
+
+    privileged: true
+    stdin_open: true  
+    command: 
+      - /bin/bash
+      - -c
+      - roslaunch lidar_cone_detection lidar.launch
